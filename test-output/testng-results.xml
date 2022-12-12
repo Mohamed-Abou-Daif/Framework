@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="6" total="10" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-12-12T02:45:17 EET" name="Suite" finished-at="2022-12-12T02:46:04 EET" duration-ms="46865">
+    <groups>
+    </groups>
+    <test started-at="2022-12-12T02:45:17 EET" name="Test" finished-at="2022-12-12T02:46:04 EET" duration-ms="46865">
+      <class name="testCases.TC3_VallidateAddItemToCard">
+        <test-method is-config="true" signature="method(java.lang.reflect.Method)[pri:0, instance:testCases.TC3_VallidateAddItemToCard@47987356]" started-at="2022-12-12T02:45:35 EET" name="method" finished-at="2022-12-12T02:45:35 EET" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public static void testCases.TC3_VallidateAddItemToCard.AddItemToCard() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- method -->
+        <test-method signature="AddItemToCard()[pri:1, instance:testCases.TC3_VallidateAddItemToCard@47987356]" started-at="2022-12-12T02:45:35 EET" name="AddItemToCard" finished-at="2022-12-12T02:45:51 EET" duration-ms="15201" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddItemToCard -->
+        <test-method is-config="true" signature="screenshotOnFailure(org.testng.ITestResult)[pri:0, instance:testCases.TC3_VallidateAddItemToCard@47987356]" started-at="2022-12-12T02:45:51 EET" name="screenshotOnFailure" finished-at="2022-12-12T02:45:51 EET" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=AddItemToCard status=SUCCESS method=TC3_VallidateAddItemToCard.AddItemToCard()[pri:1, instance:testCases.TC3_VallidateAddItemToCard@47987356] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- screenshotOnFailure -->
+      </class> <!-- testCases.TC3_VallidateAddItemToCard -->
+      <class name="testCases.TC1_ValidateSignUp">
+        <test-method is-config="true" signature="setup()[pri:0, instance:testCases.TC1_ValidateSignUp@6da21078]" started-at="2022-12-12T02:45:17 EET" name="setup" finished-at="2022-12-12T02:45:23 EET" duration-ms="5839" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method is-config="true" signature="method(java.lang.reflect.Method)[pri:0, instance:testCases.TC1_ValidateSignUp@6da21078]" started-at="2022-12-12T02:45:23 EET" name="method" finished-at="2022-12-12T02:45:23 EET" duration-ms="7" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public static void testCases.TC1_ValidateSignUp.SignUp() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- method -->
+        <test-method signature="SignUp()[pri:1, instance:testCases.TC1_ValidateSignUp@6da21078]" started-at="2022-12-12T02:45:23 EET" name="SignUp" finished-at="2022-12-12T02:45:33 EET" duration-ms="9986" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SignUp -->
+        <test-method is-config="true" signature="screenshotOnFailure(org.testng.ITestResult)[pri:0, instance:testCases.TC1_ValidateSignUp@6da21078]" started-at="2022-12-12T02:45:33 EET" name="screenshotOnFailure" finished-at="2022-12-12T02:45:33 EET" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=SignUp status=SUCCESS method=TC1_ValidateSignUp.SignUp()[pri:1, instance:testCases.TC1_ValidateSignUp@6da21078] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- screenshotOnFailure -->
+        <test-method is-config="true" signature="stopDriver()[pri:0, instance:testCases.TC1_ValidateSignUp@6da21078]" started-at="2022-12-12T02:46:03 EET" name="stopDriver" finished-at="2022-12-12T02:46:04 EET" duration-ms="691" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- stopDriver -->
+      </class> <!-- testCases.TC1_ValidateSignUp -->
+      <class name="testCases.TC4_ValidateCheckout">
+        <test-method is-config="true" signature="method(java.lang.reflect.Method)[pri:0, instance:testCases.TC4_ValidateCheckout@22ef9844]" started-at="2022-12-12T02:45:51 EET" name="method" finished-at="2022-12-12T02:45:51 EET" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public static void testCases.TC4_ValidateCheckout.CheckOut() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- method -->
+        <test-method signature="CheckOut()[pri:1, instance:testCases.TC4_ValidateCheckout@22ef9844]" started-at="2022-12-12T02:45:51 EET" name="CheckOut" finished-at="2022-12-12T02:46:03 EET" duration-ms="12412" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CheckOut -->
+        <test-method is-config="true" signature="screenshotOnFailure(org.testng.ITestResult)[pri:0, instance:testCases.TC4_ValidateCheckout@22ef9844]" started-at="2022-12-12T02:46:03 EET" name="screenshotOnFailure" finished-at="2022-12-12T02:46:03 EET" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=CheckOut status=SUCCESS method=TC4_ValidateCheckout.CheckOut()[pri:1, instance:testCases.TC4_ValidateCheckout@22ef9844] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- screenshotOnFailure -->
+      </class> <!-- testCases.TC4_ValidateCheckout -->
+      <class name="testCases.TC2_ValidateLogin">
+        <test-method is-config="true" signature="method(java.lang.reflect.Method)[pri:0, instance:testCases.TC2_ValidateLogin@7205765b]" started-at="2022-12-12T02:45:33 EET" name="method" finished-at="2022-12-12T02:45:33 EET" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public static void testCases.TC2_ValidateLogin.Login() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- method -->
+        <test-method signature="Login()[pri:1, instance:testCases.TC2_ValidateLogin@7205765b]" started-at="2022-12-12T02:45:33 EET" name="Login" finished-at="2022-12-12T02:45:35 EET" duration-ms="2656" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method is-config="true" signature="screenshotOnFailure(org.testng.ITestResult)[pri:0, instance:testCases.TC2_ValidateLogin@7205765b]" started-at="2022-12-12T02:45:35 EET" name="screenshotOnFailure" finished-at="2022-12-12T02:45:35 EET" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Login status=SUCCESS method=TC2_ValidateLogin.Login()[pri:1, instance:testCases.TC2_ValidateLogin@7205765b] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- screenshotOnFailure -->
+      </class> <!-- testCases.TC2_ValidateLogin -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

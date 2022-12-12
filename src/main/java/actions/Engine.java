@@ -1,0 +1,254 @@
+package actions;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.aventstack.extentreports.MediaEntityBuilder;
+
+import base.Base;
+
+public class Engine extends Base{
+
+	public static WebDriver driver;
+	public Engine() {
+		driver = Base.driver;
+	}
+
+	/**
+	 * used to perform click on Buttons, Links, RB, Check boxes
+	 * @param locator  - get it from Object Repository
+	 * @param eleName   - Name of the Element
+	 * @throws Exception
+	 */
+
+	public void click(By locator, String eleName) throws Exception{
+		try {
+			driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
+			driver.findElement(locator).click();
+			Base.childTest.pass("Successfully performed click on :" +eleName);
+
+		} catch (Exception e) {
+			Base.childTest.fail("Unable to performed click on :" +eleName,
+					MediaEntityBuilder.createScreenCaptureFromBase64String(screenShot()).build());
+			Base.childTest.info(e);
+			throw e;
+		}
+	}
+
+	/**
+	 * used to perform type Action in Text box and Text area
+	 * @param locator  
+	 * @param testData 
+	 * @throws Exception
+	 */
+
+	public void type(By locator, String testData, String eleName) throws Exception{
+		try {
+			driver.findElement(locator).sendKeys(testData);
+			Base.childTest.pass("Performed type in  :" +eleName+ " with data : "+testData);
+
+		} catch (Exception e) {
+			System.out.println("Element is not present");
+			Base.childTest.fail("Unable to Performed type in  :" +eleName+ " with data : "+testData ,
+					MediaEntityBuilder.createScreenCaptureFromBase64String(screenShot()).build());
+			Base.childTest.info(e);
+			throw e;
+		}
+	}
+
+	/**
+	 * used to Get Text from Text box and Text area
+	 * @param locator  
+	 * @param testData 
+	 * @throws Exception
+	 */
+
+	public static String getText(By locator, String testData) throws Exception{
+		try {
+			testData = driver.findElement(locator).getText();
+			Base.childTest.pass("Text is  :" +testData);
+			return testData;
+
+		} catch (Exception e) {
+			Base.childTest.fail("Unable to return Text" ,
+					MediaEntityBuilder.createScreenCaptureFromBase64String(screenShot()).build());
+			Base.childTest.info(e);
+			return null;
+		}
+	}
+
+	/**
+	 * Perform Mouse hover on given element
+	 * @param Locator
+	 * @param eleName  
+	 * @throws Exception
+	 */
+
+	public static void mouseHover(By Locator, String eleName) throws Exception{
+		try {
+			Actions act = new Actions(driver);
+			WebElement ele = driver.findElement(Locator);
+			act.moveToElement(ele).build().perform();
+			Thread.sleep(2000);
+			Base.childTest.pass("Successfully mouse hover on : "+eleName);
+
+		} catch (Exception e) {
+			Base.childTest.fail("Unable to mouse hover on : "+eleName,
+					MediaEntityBuilder.createScreenCaptureFromBase64String(screenShot()).build());
+			Base.childTest.info(e);
+			throw e;
+		}
+	}
+
+	/**
+	 * Perform Mouse hover and click on submenu
+	 * @param menuLocator
+	 * @param subMenuLocator  
+	 * @param menu
+	 * @param subMenu 
+	 * @throws Exception
+	 */
+
+	public static void mouseHoverAndClickSubMenu(By menuLocator, By subMenuLocator, String menu, String subMenu) throws Exception{
+		try {
+			Actions action = new Actions(driver);
+			WebElement element = driver.findElement(menuLocator);
+			action.moveToElement(element).build().perform();
+			Thread.sleep(2000);
+			driver.findElement(subMenuLocator).click();
+			Base.childTest.pass("Successfully mouse hover on Menu: "+menu+" and clicked on subMenu: "+subMenu);
+
+		} catch (Exception e) {
+			System.out.println("Element is not present");
+			Base.childTest.fail("Unable to mouse hover on Menu: "+menu+" and Unable to click on subMenu: "+subMenu ,
+					MediaEntityBuilder.createScreenCaptureFromBase64String(screenShot()).build());
+			Base.childTest.info(e);
+			throw e;
+		}
+	}
+
+	/**
+	 * return true if vsibleText From Dropdown Menu
+	 * @param locator  - get it from Object Repository
+	 * @param vsibleText  
+	 * @throws Exception
+	 */
+
+	public static void selectByVisibleText(By locator, String vsibleText) throws Exception{
+		try {
+			List<WebElement> options = driver.findElements(locator);
+			for(int i=0;i<options.size();i++) {
+				String listItems = options.get(i).getText();
+				if(listItems.contentEquals(vsibleText)) {
+					options.get(i).click();
+					break;
+				}
+			}
+			Base.childTest.pass("Selected :" +vsibleText+ " from Suggestions");
+
+		} catch (Exception e) {
+			Base.childTest.pass("Unable to Selected :" +vsibleText+ " from Suggestions" ,
+					MediaEntityBuilder.createScreenCaptureFromBase64String(screenShot()).build());
+			Base.childTest.info(e);
+			throw e;
+		}
+	}
+
+	/**
+	 * Select By Value From Dropdown Menu
+	 * @param locator  - get it from Object Repository
+	 * @param Value  
+	 * @throws Exception
+	 */
+
+	public void selectByValue(By locator, String Value) throws Exception{
+		try {
+			WebElement element = driver.findElement(locator);
+			Select select = new Select(element);
+			select.selectByValue(Value);
+			Base.childTest.pass("Selected :" +Value+ " from Suggestions");
+
+		} catch (Exception e) {
+			Base.childTest.pass("Unable to Selected :" +Value+ " from Suggestions" ,
+					MediaEntityBuilder.createScreenCaptureFromBase64String(screenShot()).build());
+			Base.childTest.info(e);
+			throw e;
+		}
+	}
+	/**
+	 * Scroll By
+	 * @param locator  - get it from Object Repository
+	 * @param Value  
+	 * @throws Exception
+	 */
+
+	public static void scrollBy(String Value) throws Exception{
+		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver ;
+			js.executeScript(Value);
+			Base.childTest.pass("Scrolled " +Value);
+
+		} catch (Exception e) {
+			Base.childTest.pass("Unable to Scroll : " +Value,
+					MediaEntityBuilder.createScreenCaptureFromBase64String(screenShot()).build());
+			Base.childTest.info(e);
+			throw e;
+		}
+	}
+
+	/**
+	 * it will return true if Element is the present otherwise false
+	 * @param locator  - get it from Object Repository
+	 * @param eleName   - Name of the Element
+	 * @throws IOException
+	 */
+
+	public boolean isElePresent(By locator, String eleName) throws IOException{
+		try {
+			driver.findElement(locator);
+			Base.childTest.pass("Element :" +eleName+ " is present");
+			return true;
+
+		} catch (Exception e) {
+			System.out.println("Element is not present");
+			Base.childTest.pass("Element :" +eleName+ " is not present" ,
+					MediaEntityBuilder.createScreenCaptureFromBase64String(screenShot()).build());
+			return false;
+		}
+	}
+
+	/**
+	 * used to perform wait until the Elements be visiable
+	 * @param eleName   - Name of the Element
+	 * @throws Exception
+	 */
+
+	public void waitUntilEleIsVisiable(String eleName) throws Exception{
+		try {
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			Base.childTest.pass("Successfully performed click on :" +eleName);
+
+		} catch (Exception e) {
+			Base.childTest.fail("Unable to performed click on :" +eleName,
+					MediaEntityBuilder.createScreenCaptureFromBase64String(screenShot()).build());
+			Base.childTest.info(e);
+			throw e;
+		}
+	}
+
+	public static String screenShot() {
+		return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+	}
+}
